@@ -1,211 +1,81 @@
-# DripTrack
-Wardrobe Manager
+# DripTrack - Wardrobe Manager (Work in Progress)
+<img src="frontend/src/assets/logo.png" height="100" />
 
+## The Problem
+So, I need a way to help people manage their wardrobe more efficiently. Most of us have too many clothes, and often we don’t know what we’ve worn recently or what we should wear next. A good wardrobe manager could help organize everything better, track usage, and even suggest how to optimize it based on wear frequency.
 
-Overview
+## The Solution
 
-A full-stack MERN application designed to help users manage their wardrobe efficiently. It allows users to upload photos of their clothes, categorize them manually, track wardrobe usage, and sort items based on usage frequency. Each category is displayed in separate tabs for easier navigation.
+I'm building a **full-stack MERN application** to solve this problem. The app will let users upload their clothes, categorize them, track how often they wear items, and sort everything based on how often it's worn. It should be easy to navigate with categories like "shirts," "pants," and "winter wear" in separate tabs.
 
-Key Features
+### Key Features I'm Working On:
 
-User Login:
+#### 1. **User Login (Authentication)**
+   - **Problem**: I need to make sure users can log in and their data is safe.
+   - **Solution**: Implement a secure login system with **JWT tokens** to manage user sessions. This way, each user’s wardrobe data is separate.
+   - **Next steps**: Set up signup/login forms and connect them to an authentication system in the backend.
 
-Secure authentication system.
+   ![Auth Screenshot](./Demo/Auth.png)  
 
-Wardrobe Management:
+#### 2. **Wardrobe Management (Adding Items)**
+   - **Problem**: Users need to upload their clothes and categorize them.
+   - **Solution**: Provide a form where users can upload photos and manually assign categories like “shirts,” “pants,” and more.
+   - **Next steps**: Build an upload form, connect it to a backend API that stores these images, and organize them into categories.
 
-Users can upload photos of clothing items and categorize them manually (e.g., pants, shirts, winter wear).
+#### 3. **Usage Tracking**
+   - **Problem**: How do users keep track of how often they wear an item?
+   - **Solution**: Create a button that allows users to mark when they wear an item, which increments a counter for that item’s usage.
+   - **Next steps**: Implement the usage tracking button and make sure the count updates in the database every time an item is worn.
 
-Categories are displayed in separate tabs.
+#### 4. **Sorting by Usage**
+   - **Problem**: How can users see which items they wear the most or least?
+   - **Solution**: Add sorting functionality that allows users to sort their wardrobe items by usage (ascending/descending).
+   - **Next steps**: Create a dropdown to select the sort option, and fetch the sorted data from the backend.
 
-Usage Tracking:
+## Tech Stack
 
-Users can notify the app when an item is worn, which increments a usage counter.
+- **Frontend**: 
+  - **React.js** for the user interface
+  - **Redux** for state management (because I’ll need to track user sessions and wardrobe items globally)
+  - **Vite** for super-fast development
+  - **Tailwind CSS** for a modern and responsive UI
 
-Sorting by Usage:
+- **Backend**:
+  - **Node.js** for the server-side logic
+  - **Express.js** to build the APIs
+  - **MongoDB** to store user and wardrobe data
 
-Items can be sorted in ascending or descending order of usage frequency.
+## What I’ve Done So Far
 
-Tech Stack
+- Set up the basic project structure with **React**, **Redux**, and **Node.js**.
+- Created the user authentication system with **JWT**.
+- Built the basic wardrobe item upload system (still need to test it with actual images).
 
-Frontend:
+## What’s Left To Do
 
-React.js: For building dynamic user interfaces.
+- Finalize the wardrobe categorization and photo upload feature.
+- Implement usage tracking (add the button that increments the usage count).
+- Create sorting options and test dynamic data rendering.
+- Make sure everything is responsive (Tailwind CSS to the rescue!).
 
-Redux: For state management.
+## The Road Ahead
 
-Vite: For fast development and optimized builds.
+- **Phase 1**: Complete user login/signup and wardrobe item upload.
+- **Phase 2**: Add the usage tracking and sorting features.
+- **Phase 3**: Polish the UI and test everything for mobile responsiveness.
 
-Tailwind CSS: For responsive and modern design.
+## Challenges I'm Facing
 
-Backend:
+1. **Managing Image Uploads**: Figuring out how to handle image uploads securely and efficiently.
+2. **Real-Time Updates**: Keeping the wardrobe data up-to-date with real-time usage tracking.
+3. **Mobile Responsiveness**: Ensuring the app looks good on all devices (mobile-first design with Tailwind).
 
-Node.js: Server-side environment.
+## Next Steps
 
-Express.js: Web framework for building APIs.
+- Finalize the wardrobe upload feature and test it.
+- Start building the usage tracking system and sorting by usage.
 
-MongoDB: Database for storing wardrobe data.
+### End Goal
+To have a simple but effective wardrobe management app that helps people keep their clothes organized and track what they wear the most. Eventually, I might even add AI to recommend outfits based on what you wear most often.
 
-Features Breakdown
-
-1. User Login
-
-Workflow:
-
-Users can create an account or log in using their email and password.
-
-Authentication tokens are used to secure sessions.
-
-Implementation:
-
-Frontend: Form for signup and login.
-
-Backend: Authentication endpoints with JWT tokens.
-
-Database:
-
-Store user credentials securely.
-
-2. Wardrobe Management
-
-Workflow:
-
-Users upload photos of their clothing items.
-
-Manually categorize each item (e.g., shirt, pants, winter wear).
-
-Categories are displayed in separate tabs for easier navigation.
-
-Implementation:
-
-Frontend: Form for uploading photos and selecting categories. Tabs are used to display categories, making it intuitive for users to navigate.
-
-Backend:
-
-API for storing clothing data.
-
-Database:
-
-Store image URLs and associated categories.
-
-3. Usage Tracking
-
-Workflow:
-
-Users notify the app when they wear an item.
-
-The app increments the "times worn" counter for the item.
-
-Display a badge on each item showing usage count.
-
-Implementation:
-
-Frontend: Button to increment usage count for each item.
-
-Backend:
-
-API to update the usage count.
-
-Database:
-
-Track usage count for each item.
-
-4. Sorting by Usage
-
-Workflow:
-
-Users can sort items by the "times worn" count in ascending or descending order.
-
-Sorted results are displayed dynamically within their respective category tabs.
-
-Implementation:
-
-Frontend: Dropdown or toggle for sorting options.
-
-Backend:
-
-API to fetch sorted items from the database.
-
-Database:
-
-Query items by usage count.
-
-System Architecture
-
-Frontend: React application communicating with backend APIs.
-
-Backend: Node.js server exposing REST APIs.
-
-Database: MongoDB for structured wardrobe and user data.
-
-Development Roadmap
-
-Phase 1: Core Features
-
-User Authentication (Signup/Login).
-
-Image Upload and Manual Categorization with Tabs.
-
-Phase 2: Advanced Features
-
-Usage Tracking with Incremental Counter.
-
-Sorting by Usage Count within Tabs.
-
-API Endpoints
-
-Authentication:
-
-POST /api/auth/signup
-
-POST /api/auth/login
-
-Wardrobe:
-
-POST /api/wardrobe/upload
-
-GET /api/wardrobe
-
-PUT /api/wardrobe/:id
-
-DELETE /api/wardrobe/:id
-
-Usage Tracking:
-
-POST /api/wardrobe/:id/wear
-
-Sorting:
-
-GET /api/wardrobe?sort=usage&order=asc
-
-GET /api/wardrobe?sort=usage&order=desc
-
-Database Schema
-
-Users:
-
-{
-  "id": "string",
-  "name": "string",
-  "email": "string",
-  "password": "string",
-  "wardrobe": ["item_id"]
-}
-
-Wardrobe Items:
-
-{
-  "id": "string",
-  "user_id": "string",
-  "image_url": "string",
-  "category": "string",
-  "times_worn": "number"
-}
-
-Deployment
-
-Frontend: Deploy on platforms like Vercel or Netlify.
-
-Backend: Host on AWS, Heroku, or Render.
-
-Database: Use MongoDB Atlas for cloud storage.
+Stay tuned! 🚀
