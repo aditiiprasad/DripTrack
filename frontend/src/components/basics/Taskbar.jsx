@@ -5,7 +5,7 @@ import logo from "./assets/logo.png";
 const Taskbar = () => {
   const navigate = useNavigate();
 
-  // Set initial active button to "wardrobe"
+  
   const [activeButton, setActiveButton] = useState("wardrobe");
 
   const handleLogout = () => {
@@ -14,13 +14,13 @@ const Taskbar = () => {
   };
 
   const handleScrollToSection = (sectionId, buttonName) => {
-    // Scroll to the section
+   
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
     
-    // Set the active button state
+    
     setActiveButton(buttonName);
   };
 

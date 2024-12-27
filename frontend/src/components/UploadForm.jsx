@@ -12,7 +12,7 @@ const UploadForm = ({ onSubmit }) => {
     formData.append("category", category);
     formData.append("image", image);
 
-    onSubmit(formData); // Call onSubmit passed from parent component
+    onSubmit(formData); 
   };
 
   const handleCategorySelect = (category) => {
