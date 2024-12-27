@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import ReactDOM from "react-dom/client";
 
 import AuthPage from "./components/Auth/AuthPage";
-import WardrobeUploadForm from "./components/WardrobeUploadForm";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+import HomePage from "./components/Homepage";
 
 const App = () => {
  
@@ -14,8 +15,16 @@ const App = () => {
     <>
       <Router>
       <Routes>
-        <Route path="/" element={<AuthPage />} />
-        <Route path="/form" element={<WardrobeUploadForm />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <HomePage/>
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/auth" />} />
       </Routes>
     </Router>
     </>

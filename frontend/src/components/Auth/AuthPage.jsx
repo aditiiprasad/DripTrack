@@ -14,13 +14,14 @@ const AuthPage = () => {
       const response = await axios.post(url, formData);
   
       console.log("Success:", response.data);
-      alert(`Authentication successful! Token: ${response.data.token}`);
+      
       
       
       localStorage.setItem("token", response.data.token);
       
      
-      navigate("/form");
+      navigate("/home");
+
     } catch (error) {
       console.error("Error:", error.response?.data || error);
       alert(error.response?.data?.message || "An error occurred");
@@ -28,7 +29,7 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-yellow-300">
+    <div className="min-w-max min-h-screen flex flex-col items-center justify-center bg-yellow-300">
    
 
 <LoginHeader/>

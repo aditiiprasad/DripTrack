@@ -2,7 +2,7 @@
 <img src="frontend/src/assets/logo.png" height="100" />
 
 ## The Problem
-So, I need a way to help people manage their wardrobe more efficiently. Most of us have too many clothes, and often we don’t know what we’ve worn recently or what we should wear next. A good wardrobe manager could help organize everything better, track usage, and even suggest how to optimize it based on wear frequency.
+So, Most of us have too many clothes, and often we don’t know what we’ve worn recently or what we should wear next. A good wardrobe manager could help organize everything better, track usage, and even suggest how to optimize it based on wear frequency.
 
 ## The Solution
 
@@ -21,6 +21,8 @@ I'm building a **full-stack MERN application** to solve this problem. The app wi
    - **Problem**: Users need to upload their clothes and categorize them.
    - **Solution**: Provide a form where users can upload photos and manually assign categories like “shirts,” “pants,” and more.
    - **Next steps**: Build an upload form, connect it to a backend API that stores these images, and organize them into categories.
+
+![Upload Screenshot](./Demo/Upload.png)  
 
 #### 3. **Usage Tracking**
    - **Problem**: How do users keep track of how often they wear an item?

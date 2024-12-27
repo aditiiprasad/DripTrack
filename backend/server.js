@@ -2,12 +2,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
+const wardrobeRoutes = require("./routes/wardrobe");
+
 require("dotenv").config();
+
+
+app.use("/api/wardrobe", wardrobeRoutes);
 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use("/api/wardrobe", wardrobeRoutes);
+
 
 // MongoDB connection
 const MONGO_URI = process.env.MONGO_URI || "your_fallback_local_mongo_url"; 
