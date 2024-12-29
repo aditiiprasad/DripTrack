@@ -6,7 +6,7 @@ import ReactDOM from "react-dom/client";
 import AuthPage from "./components/Auth/AuthPage";
 
 import ProtectedRoute from "./components/ProtectedRoute";
-import HomePage from "./components/Homepage";
+import HomePage from "./components/HomePage";
 
 const App = () => {
  

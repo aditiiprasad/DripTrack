@@ -3,8 +3,7 @@ import WardrobeUpload from "./WardrobeUpload";
 import WardrobeList from "./WardrobeList";
 import Taskbar from "./basics/Taskbar";
 import Footer from "./basics/Footer";
-import ClosetForm from "./ClosetForm";
-import ClosetList from "./ClosetList";
+
 
 const HomePage = () => {
   const email = localStorage.getItem("email");
