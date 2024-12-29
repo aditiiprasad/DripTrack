@@ -2,18 +2,22 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
-const wardrobeRoutes = require("./routes/wardrobe");
+const closetRoutes = require("./routes/closet");
+
+
+
+
 
 require("dotenv").config();
 
 
-app.use("/api/wardrobe", wardrobeRoutes);
 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/api/wardrobe", wardrobeRoutes);
+
+app.use("/api/closet", closetRoutes);
 
 
 // MongoDB connection
@@ -31,3 +35,7 @@ mongoose
 app.use("/api/auth", authRoutes);
 
 app.listen(5000, () => console.log("Server running on http://localhost:5000"));
+
+
+
+

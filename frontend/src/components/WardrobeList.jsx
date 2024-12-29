@@ -1,39 +1,18 @@
-// src/components/WardrobeList.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import WardrobeHeader from "./basics/WardrobeHeader";
+import ClosetList from "./ClosetList";
 
 const WardrobeList = () => {
-  const [wardrobe, setWardrobe] = useState([]);
-
-  useEffect(() => {
-    const fetchWardrobe = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/wardrobe", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setWardrobe(response.data);
-      } catch (error) {
-        console.error("Error fetching wardrobe", error);
-      }
-    };
-
-    fetchWardrobe();
-  }, []);
-
   return (
-    <div>
-      <h2>Your Wardrobe</h2>
-      <ul>
-        {wardrobe.map((item) => (
-          <li key={item._id}>
-            <p>Category: {item.category}</p>
-            <img src={item.imageUrl} alt={item.category} width="100" />
-          </li>
-        ))}
-      </ul>
+    <div className="min-h-screen bg-custom-pink flex flex-col items-center justify-center p-8 sm:p-8 lg:p-10">
+      {/* Wardrobe Header */}
+      <WardrobeHeader />
+
+      {/* Closet List */}
+      <div className="mt-8 w-full max-w-6xl  rounded-lg  p-6">
+        <ClosetList />
+      </div>
     </div>
   );
 };

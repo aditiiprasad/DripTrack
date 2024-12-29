@@ -13,7 +13,7 @@ export default {
       },
       colors: {
         'custom-purple': '#7d5bb0',
-        'custom-pink': '#dc6fe8',
+        'custom-pink': '#FF84CA',
         'custom-blue': '#6fbae8',
         'custom-red': '#f5594e',
       },

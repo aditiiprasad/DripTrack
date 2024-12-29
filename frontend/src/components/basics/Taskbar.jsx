@@ -6,7 +6,7 @@ const Taskbar = () => {
   const navigate = useNavigate();
 
   
-  const [activeButton, setActiveButton] = useState("wardrobe");
+  const [activeButton, setActiveButton] = useState("upload");
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -25,7 +25,7 @@ const Taskbar = () => {
   };
 
   return (
-    <div className="fixed top-3 left-3 right-3 md:left-5 md:right-5 rounded-full w-auto h-16 bg-custom-purple text-white flex items-center justify-between  shadow-[5px_5px_10px_rgba(0,0,0,1)] px-4 z-50">
+    <div className="fixed top-3 left-3 right-3 md:left-5 md:right-5 rounded-full border w-auto h-16 bg-custom-purple text-white flex items-center justify-between  border-b-4 border-r-4 border-black px-4 z-50">
       {/* Logo */}
       <div className="flex items-center">
         <img
@@ -41,25 +41,25 @@ const Taskbar = () => {
           onClick={() => handleScrollToSection("wardrobeList", "wardrobe")}
           className={`px-3 py-1 md:px-4 md:py-2  rounded-full font-extrabold text-sm md:text-base ${
             activeButton === "wardrobe"
-              ? "bg-white text-black border-black border-b-4 border-r-4 hover:bg-gray-200"
-              : "bg-transparent border-black hover:bg-gray-200 hover:text-black  hover:border-b-2 hover:border-r-2 "
+              ? "bg-white border text-black border-black border-b-4 border-r-4 hover:bg-gray-200"
+              : "bg-transparent border border-black hover:bg-gray-200 hover:text-black  hover:border-b-2 hover:border-r-2 "
           }`}
         >
-          My Wardrobe
+          My Closet
         </button>
         <button
           onClick={() => handleScrollToSection("wardrobeUpload", "upload")}
           className={`px-3 py-1 md:px-4 md:py-2  rounded-full font-extrabold text-sm md:text-base ${
             activeButton === "upload"
-              ? "bg-white text-black border-black border-b-4 border-r-4 hover:bg-gray-200"
-              : "bg-transparent border-black hover:bg-gray-200 hover:text-black  hover:border-b-2 hover:border-r-2 "
+              ? "bg-white border text-black border-black border-b-4 border-r-4 hover:bg-gray-200"
+              : "bg-transparent border border-black hover:bg-gray-200 hover:text-black  hover:border-b-2 hover:border-r-2 "
           }`}
         >
-          Add in Closet
+          Add in my Closet
         </button>
         <button
           onClick={handleLogout}
-          className="px-3 py-1 md:px-4 md:py-2 bg-custom-pink rounded-full font-extrabold text-black text-sm md:text-base 
+          className="px-3 border py-1 md:px-4 md:py-2 bg-custom-pink rounded-full font-extrabold text-black text-sm md:text-base 
                  border-b-2 border-r-2 border-black hover:border-b-4 hover:border-r-4 transition-all duration-75"
         >
           Logout

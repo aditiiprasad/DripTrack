@@ -2,8 +2,9 @@
 
 import React from "react";
 import axios from "axios";
-import UploadForm from "./UploadForm"; 
+
 import gif from "../assets/vid.gif"; 
+import ClosetForm from "./ClosetForm";
 
 const WardrobeUpload = () => {
   const handleSubmit = async (formData) => {
@@ -29,8 +30,8 @@ const WardrobeUpload = () => {
   };
 
   return (
-    <div className="min-w-max   bg-white p-20 mt-36 flex justify-center align-middle">
-      <div className="w-full   mx-auto  p-6 rounded-lg shadow-lg mt-8 bg-custom-red flex flex-col md:flex-row">
+    <div className="   bg-white p-14 mt-36 flex justify-center align-middle  ">
+      <div className="w-full  border mx-auto  p-2 rounded-lg  mt-8 bg-custom-red flex flex-col md:flex-row border-b-4 border-r-4 border-black">
         
         <div className="flex-1 md:w-1/2 p-4 border-r-2 border-white">
           <img
@@ -42,8 +43,9 @@ const WardrobeUpload = () => {
 
         
         <div className="flex-1 md:w-1/2 p-4">
-          <h4 className="font-shrikhand text-white text-3xl">Add to your Closet</h4>
-          <UploadForm onSubmit={handleSubmit} />
+          <h4 className="font-shrikhand text-white text-3xl">Add to my Closet</h4>
+          
+          <ClosetForm onSubmit={handleSubmit} />
         </div>
       </div>
     </div>
