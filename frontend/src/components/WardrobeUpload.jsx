@@ -11,7 +11,7 @@ const WardrobeUpload = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5000/api/wardrobe",
+        "https://driptrack.onrender.com/api/wardrobe",
         formData,
         {
           headers: {

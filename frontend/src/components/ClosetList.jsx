@@ -32,7 +32,7 @@ const ClosetList = () => {
     setError("");
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/closet/list/${email}`
+        `https://driptrack.onrender.com/api/closet/list/${email}`
       );
       setClosetItems(response.data);
       setFilteredItems(response.data);
@@ -87,7 +87,7 @@ const ClosetList = () => {
       );
       setClosetItems(updatedItems);
 
-      await axios.put(`http://localhost:5000/api/closet/update/${itemId}`, {
+      await axios.put(`https://driptrack.onrender.com/api/closet/update/${itemId}`, {
         wearCount: updatedItems.find((item) => item._id === itemId).wearCount,
       });
     } catch (error) {
@@ -98,7 +98,7 @@ const ClosetList = () => {
   const handleDelete = async (itemId) => {
     try {
       // Delete item from backend
-      await axios.delete(`http://localhost:5000/api/closet/delete/${itemId}`);
+      await axios.delete(`https://driptrack.onrender.com/api/closet/delete/${itemId}`);
 
       // Remove item from the frontend state
       setClosetItems(closetItems.filter((item) => item._id !== itemId));

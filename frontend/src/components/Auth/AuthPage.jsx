@@ -10,7 +10,7 @@ const AuthPage = () => {
 
   const handleAuth = async (formData) => {
     try {
-      const url = isLogin ? "http://localhost:5000/api/auth/login" : "http://localhost:5000/api/auth/signup";
+      const url = isLogin ? "https://driptrack.onrender.com/api/auth/login" : "https://driptrack.onrender.com/api/auth/signup";
       const response = await axios.post(url, formData);
   
       console.log("Success:", response.data);
