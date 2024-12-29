@@ -7,13 +7,21 @@ const ClosetForm = () => {
   const [image, setImage] = useState(null);
   const [message, setMessage] = useState("");
   const [showMoreCategories, setShowMoreCategories] = useState(false);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   const email = localStorage.getItem("email");
 
   const categories = [
-    "Pants", "Shirts", "T-Shirts", "Skirts", "Dresses",
-    "Shoes", "Accessories", "Indian Wear", "Winter Wear", "Shorts"
+    "Pants",
+    "Shirts",
+    "T-Shirts",
+    "Skirts",
+    "Dresses",
+    "Shoes",
+    "Accessories",
+    "Indian Wear",
+    "Winter Wear",
+    "Shorts",
   ];
 
   const handleFileChange = (e) => {
@@ -26,7 +34,7 @@ const ClosetForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); 
+    setLoading(true);
 
     const formData = new FormData();
     formData.append("email", email);
@@ -37,11 +45,15 @@ const ClosetForm = () => {
     }
 
     try {
-      await axios.post("https://driptrack.onrender.com/api/closet/add", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        "https://driptrack.onrender.com/api/closet/add",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       setMessage("Clothing item added to closet!");
       setClothName("");
       setCategory("");
@@ -50,14 +62,14 @@ const ClosetForm = () => {
       console.error(error);
       setMessage("Error adding item to closet.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
   const categoriesToShow = showMoreCategories ? categories : categories.slice(0, 6);
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto">
+    <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto px-4 sm:px-6">
       {/* Cloth Name Input */}
       <div className="mb-4">
         <label className="block text-white font-semibold mb-2">Item Name</label>
@@ -66,20 +78,20 @@ const ClosetForm = () => {
           value={clothName}
           onChange={(e) => setClothName(e.target.value)}
           required
-          className="w-full px-4 py-2 border font-shrikhand border-gray-300 rounded-full"
+          className="w-full px-4 py-2 border font-shrikhand border-gray-300 rounded-full text-sm sm:text-base"
         />
       </div>
 
       {/* Category Buttons */}
       <div className="mb-4">
         <label className="block text-white font-semibold mb-2">Category</label>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {categoriesToShow.map((cat) => (
             <button
               key={cat}
               type="button"
               onClick={() => handleCategorySelect(cat)}
-              className={`px-4 py-2 border border-b-2 border-r-2 border-black font-bold rounded-full ${
+              className={`px-4 py-2 border border-b-2 border-r-2 border-black font-bold rounded-full text-xs sm:text-sm ${
                 category === cat
                   ? "bg-custom-blue text-black border-black border-b-4 border-r-4 hover:bg-blue-400"
                   : "bg-white text-black border-black hover:border-b-4 hover:border-r-4"
@@ -93,7 +105,7 @@ const ClosetForm = () => {
           <button
             type="button"
             onClick={() => setShowMoreCategories(true)}
-            className="mt-2 text-white font-extrabold hover:text-black"
+            className="mt-2 text-white font-extrabold hover:text-black text-sm sm:text-base"
           >
             Show More +
           </button>
@@ -107,26 +119,24 @@ const ClosetForm = () => {
           type="file"
           onChange={handleFileChange}
           accept="image/*"
-          className="w-full px-4 py-2 border border-white rounded-full"
+          className="w-full px-4 py-2 border border-white rounded-full text-sm sm:text-base"
         />
       </div>
 
       {/* Submit Button or Loader */}
       {loading ? (
-        <div className="w-2/4 mx-auto text-center">
-          <div className="loader border-t-4 border-white border-solid rounded-full h-8 w-8 animate-spin mx-auto"></div>
-        </div>
+        <div className="w-10 h-10 border-t-4 border-white rounded-full animate-spin mx-auto"></div>
       ) : (
         <button
           type="submit"
-          className="w-2/4 px-4 py-2 bg-zinc-800 font-extrabold border-b-2 border-r-2 hover:border-b-4 hover:border-r-4 border text-white rounded-full focus:outline-none"
+          className="w-full sm:w-2/4 px-4 py-2 bg-zinc-800 font-extrabold border-b-2 border-r-2 hover:border-b-4 hover:border-r-4 border text-white rounded-full focus:outline-none"
         >
           Upload
         </button>
       )}
 
       {/* Message */}
-      {message && <p className="mt-4 text-white font-semibold">{message}</p>}
+      {message && <p className="mt-4 text-white font-semibold text-center">{message}</p>}
     </form>
   );
 };

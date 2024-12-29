@@ -28,7 +28,7 @@ const AuthPage = () => {
   
 
   return (
-    <div className="min-w-max min-h-screen flex flex-col items-center justify-center bg-yellow-300">
+    <div className="min-w-max h-screen flex flex-col items-center justify-center bg-yellow-300">
    
 
 <LoginHeader/>
