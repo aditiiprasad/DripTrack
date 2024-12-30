@@ -30,8 +30,7 @@ const AuthPage = () => {
 
   return (
     <div className="min-w-max  flex flex-col items-center justify-center bg-yellow-300">
-      <LoginHeader />
-      
+      <div>
       {/* Source Code Link */}
       <a
         href="https://github.com/aditiiprasad/DripTrack"
@@ -41,7 +40,10 @@ const AuthPage = () => {
       >
         Source Code
       </a>
-
+      </div>
+      <div className="mt-10">
+      <LoginHeader />
+      </div>
       <AuthForm mode={isLogin ? "login" : "signup"} onSubmit={handleAuth} />
       <button
         onClick={() => setIsLogin(!isLogin)}

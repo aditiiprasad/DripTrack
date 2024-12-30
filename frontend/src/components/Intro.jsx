@@ -18,8 +18,8 @@ const Intro = () => {
             </div>
     
             {/* Text Section */}
-            <div className="text-center sm:text-left font-medium text-gray-800 text-sm sm:text-lg">
-              <p>
+            <div className="text-center sm:text-left  text-gray-800 text-sm sm:text-lg">
+              <p className="font-bold">
                 Ever feel like you have nothing to wear, even though your wardrobe is
                 packed? <span className="font-bold text-custom-purple">DripTrack</span> is
                 here to change that. It helps you keep track of what clothes you
