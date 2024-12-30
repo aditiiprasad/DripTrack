@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import AuthForm from "./AuthForm";
 import axios from "axios";
@@ -9,6 +9,14 @@ const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate(); 
 
+  useEffect(() => {
+   
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/home");
+    }
+  }, [navigate]);
+
   const handleAuth = async (formData) => {
     try {
       const url = isLogin ? "https://driptrack.onrender.com/api/auth/login" : "https://driptrack.onrender.com/api/auth/signup";
@@ -16,9 +24,9 @@ const AuthPage = () => {
   
       console.log("Success:", response.data);
   
-      // Store JWT token and email in localStorage
+      
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("email", formData.email);  // Store the email
+      localStorage.setItem("email", formData.email);  
   
       navigate("/home");
     } catch (error) {
@@ -26,13 +34,11 @@ const AuthPage = () => {
       alert(error.response?.data?.message || "An error occurred");
     }
   };
-  
 
   return (
     <div className="min-w-max  flex flex-col items-center justify-center bg-yellow-300">
       <LoginHeader />
-      
-      {/* Source Code Link */}
+      <div>
       <a
         href="https://github.com/aditiiprasad/DripTrack"
         target="_blank"
@@ -41,7 +47,7 @@ const AuthPage = () => {
       >
         Source Code
       </a>
-
+      </div>
       <AuthForm mode={isLogin ? "login" : "signup"} onSubmit={handleAuth} />
       <button
         onClick={() => setIsLogin(!isLogin)}
@@ -50,10 +56,8 @@ const AuthPage = () => {
         {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
       </button>
       <div className="flex justify-center p-2 pt-8">
-      <Intro/>
+        <Intro/>
       </div>
-     
-      
     </div>
   );
 };
