@@ -1,14 +1,12 @@
-# DripTrack - Wardrobe Manager (Work in Progress)
-<img src="frontend/src/assets/logo.png" height="100" />
+# DripTrack - Wardrobe Manager 
+  
 
-## The Problem
-So, Most of us have too many clothes, and often we don’t know what we’ve worn recently or what we should wear next. A good wardrobe manager could help organize everything better, track usage, and even suggest how to optimize it based on wear frequency.
 
-## The Solution
+<a href="https://drip-track.vercel.app/"><img src="frontend/src/assets/logo.png" height="100" />  </a> <b>Click this icon to view Project<b>
 
-I'm building a **full-stack MERN application** to solve this problem. The app will let users upload their clothes, categorize them, track how often they wear items, and sort everything based on how often it's worn. It should be easy to navigate with categories like "shirts," "pants," and "winter wear" in separate tabs.
+Ever feel like you have nothing to wear, even though your wardrobe is packed? DripTrack is here to change that. It helps you keep track of what clothes you already have and how often you wear them—all from your phone. No more digging through piles or buying clothes you don’t need. Just scroll through your wardrobe, mix and match outfits, and you’ll always know what you’ve got. Plus, by reducing unnecessary purchases, we’re all about sustainability and keeping your wardrobe organized.
 
-### Key Features I'm Working On:
+### Key Features :
 
 #### 1. **User Login (Authentication)**    `Status:Completed` 
    - **Problem**: I need to make sure users can log in and their data is safe.

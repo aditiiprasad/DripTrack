@@ -28,7 +28,7 @@ const WardrobeUpload = () => {
   };
 
   return (
-    <div className="bg-white p-6 sm:p-2 mt-24 sm:mt-36 flex justify-center items-center">
+    <div className="bg-white p-6 sm:p-2 mt-10  flex justify-center items-center">
       <div className="w-full max-w-4xl border mx-auto p-4 sm:p-6 rounded-lg bg-custom-red flex flex-col md:flex-row border-b-4 border-r-4 border-black">
         {/* Image Section */}
         <div className="flex-1 md:w-1/2 p-4 mb-4 md:mb-0">

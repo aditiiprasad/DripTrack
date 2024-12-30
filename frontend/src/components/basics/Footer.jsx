@@ -14,14 +14,13 @@ const Footer = () => {
           />
         </div>
 
-        
         <div className="flex flex-col font-extrabold md:flex-row space-y-6 md:space-y-0 md:space-x-16 text-center md:text-left">
           {/* Social Links */}
           <div>
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/aditiiprasad/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="no-underline hover:text-custom-pink"
@@ -31,7 +30,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/aditiiprasad"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="no-underline hover:text-custom-pink"
@@ -41,7 +40,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://leetcode.com"
+                  href="https://leetcode.com/u/aditiiprasad/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="no-underline hover:text-custom-pink"
@@ -57,7 +56,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#"
+                  href="https://github.com/aditiiprasad/DripTrack"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="no-underline hover:text-custom-pink"
@@ -67,7 +66,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://drive.google.com/file/d/1OHYxSqpoLQldASjrWlkpdA4ZpoV89Rsh/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="no-underline hover:text-custom-pink"
@@ -77,7 +76,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:example@example.com"
+                  href="mailto:aditi03prasad@gmail.com"
                   className="no-underline hover:text-custom-pink"
                 >
                   Email
@@ -86,6 +85,17 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+      </div>
+      
+      {/* Tagline and Copyright */}
+      <div className="mt-6 text-center text-sm font-medium">
+        <p className="text-custom-pink">See What You Own, </p>
+        <p className="text-custom-blue">Wear What You Love,</p>
+        <p className="text-custom-pink">Organize with Ease, </p>
+        <p className="text-custom-blue"> Waste Less,</p>
+        <p className="text-custom-pink"> Live Sustainably.</p>
+
+        <p className="mt-2">&copy; {new Date().getFullYear()} DripTrack. All rights reserved.</p>
       </div>
     </footer>
   );

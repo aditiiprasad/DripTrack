@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
 import axios from "axios";
 import LoginHeader from "../basics/LoginHeader";
+import Intro from "../Intro";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -28,10 +29,19 @@ const AuthPage = () => {
   
 
   return (
-    <div className="min-w-max h-screen flex flex-col items-center justify-center bg-yellow-300">
-   
+    <div className="min-w-max  flex flex-col items-center justify-center bg-yellow-300">
+      <LoginHeader />
+      
+      {/* Source Code Link */}
+      <a
+        href="https://github.com/aditiiprasad/DripTrack"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-4 right-4 text-zinc-800 hover:text-custom-purple font-bold text-lg"
+      >
+        Source Code
+      </a>
 
-<LoginHeader/>
       <AuthForm mode={isLogin ? "login" : "signup"} onSubmit={handleAuth} />
       <button
         onClick={() => setIsLogin(!isLogin)}
@@ -39,6 +49,11 @@ const AuthPage = () => {
       >
         {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
       </button>
+      <div className="flex justify-center p-2 pt-8">
+      <Intro/>
+      </div>
+     
+      
     </div>
   );
 };

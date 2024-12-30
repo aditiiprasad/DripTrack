@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "./assets/logo.png";
 
 const Taskbar = () => {
   const navigate = useNavigate();
+
+  
   const [activeButton, setActiveButton] = useState("upload");
 
   const handleLogout = () => {
@@ -12,17 +14,20 @@ const Taskbar = () => {
   };
 
   const handleScrollToSection = (sectionId, buttonName) => {
+   
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    
+    
     setActiveButton(buttonName);
   };
 
   return (
-    <div className="fixed top-3 left-3 right-3 md:left-5 md:right-5 rounded-full border w-auto bg-custom-purple text-white flex flex-col sm:flex-row items-center justify-between border-b-4 border-r-4 border-black px-6 py-4 sm:py-2 z-50">
+    <div className="fixed top-3 left-3 right-3 md:left-5 md:right-5 rounded-full border w-auto h-16 bg-custom-purple text-white flex items-center justify-between  border-b-4 border-r-4 border-black px-4 z-50">
       {/* Logo */}
-      <div className="mb-2 sm:mb-0 flex-shrink-0">
+      <div className="flex items-center">
         <img
           src={logo}
           alt="Logo"
@@ -31,30 +36,31 @@ const Taskbar = () => {
       </div>
 
       {/* Buttons */}
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
+      <div className="flex items-center gap-2 md:gap-4">
         <button
           onClick={() => handleScrollToSection("wardrobeList", "wardrobe")}
-          className={`px-3 py-1 md:px-4 md:py-2 rounded-full font-extrabold text-sm md:text-base ${
+          className={`px-3 py-1 md:px-4 md:py-2  rounded-full font-extrabold text-sm md:text-base ${
             activeButton === "wardrobe"
               ? "bg-white border text-black border-black border-b-4 border-r-4 hover:bg-gray-200"
-              : "bg-transparent border border-black hover:bg-gray-200 hover:text-black hover:border-b-2 hover:border-r-2"
+              : "bg-transparent border border-black hover:bg-gray-200 hover:text-black  hover:border-b-2 hover:border-r-2 "
           }`}
         >
           My Closet
         </button>
         <button
           onClick={() => handleScrollToSection("wardrobeUpload", "upload")}
-          className={`px-3 py-1 md:px-4 md:py-2 rounded-full font-extrabold text-sm md:text-base ${
+          className={`px-3 py-1 md:px-4 md:py-2  rounded-full font-extrabold text-sm md:text-base ${
             activeButton === "upload"
               ? "bg-white border text-black border-black border-b-4 border-r-4 hover:bg-gray-200"
-              : "bg-transparent border border-black hover:bg-gray-200 hover:text-black hover:border-b-2 hover:border-r-2"
+              : "bg-transparent border border-black hover:bg-gray-200 hover:text-black  hover:border-b-2 hover:border-r-2 "
           }`}
         >
           Add in my Closet
         </button>
         <button
           onClick={handleLogout}
-          className="px-3 py-1 md:px-4 md:py-2 bg-custom-pink rounded-full font-extrabold text-black text-sm md:text-base border-b-2 border-r-2 border-black hover:border-b-4 hover:border-r-4 transition-all duration-75"
+          className="px-3 border py-1 md:px-4 md:py-2 bg-custom-pink rounded-full font-extrabold text-black text-sm md:text-base 
+                 border-b-2 border-r-2 border-black hover:border-b-4 hover:border-r-4 transition-all duration-75"
         >
           Logout
         </button>

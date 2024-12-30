@@ -109,7 +109,7 @@ const ClosetList = () => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <div className="circular-loader"></div> ;
   }
 
   if (error) {
