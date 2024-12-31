@@ -7,7 +7,7 @@ const Intro = () => {
   return (
     <>
         
-          <div className="bg-white border border-black p-6 sm:p-4 rounded-3xl border-r-4 border-b-4 shadow-lg max-w-4xl flex flex-col sm:flex-row items-center sm:items-start hover:bg-yellow-300">
+          <div className="bg-white border border-black p-6 sm:p-4 rounded-3xl border-r-4 border-b-4 shadow-lg max-w-4xl flex flex-col sm:flex-row items-center sm:items-start hover:bg-yellow-300 hover:scale-105">
             {/* Image Section */}
             <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-6">
               <img

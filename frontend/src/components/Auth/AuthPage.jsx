@@ -4,6 +4,7 @@ import AuthForm from "./AuthForm";
 import axios from "axios";
 import LoginHeader from "../basics/LoginHeader";
 import Intro from "../Intro";
+import Footer from "../basics/Footer";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -69,7 +70,7 @@ const AuthPage = () => {
       </div>
 
 
-
+<Footer/>
        </div>
     
    

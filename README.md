@@ -1,6 +1,6 @@
 # DripTrack - Wardrobe Manager 
   
-
+[![wakatime](https://wakatime.com/badge/user/1fc26c7a-896d-4495-8fa5-a34266fbb649/project/78fed24f-dc0a-4851-b96e-e305a1408586.svg)](https://wakatime.com/badge/user/1fc26c7a-896d-4495-8fa5-a34266fbb649/project/78fed24f-dc0a-4851-b96e-e305a1408586)
 
 <a href="https://drip-track.vercel.app/"><img src="frontend/src/assets/logo.png" height="100" />  </a> <b>Click this icon to view Project<b>
 
