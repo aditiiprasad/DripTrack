@@ -4,8 +4,8 @@ import logo from "./assets/logo.png";
 
 const WardrobeHeader = () => {
   return (
-    <div className=" w-1/2 flex justify-center items-center ">
-      <div className="flex items-center space-x-4"> 
+    
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 p-4"> 
        
         <img
           src={logo} 
@@ -14,7 +14,7 @@ const WardrobeHeader = () => {
         />
         
         <h1
-          className="text-7xl font-shrikhand text-custom-blue relative"
+          className= "text-4xl md:text-4xl font-shrikhand text-custom-blue text-center md:text-left"
           style={{
             textShadow:
               "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
@@ -23,7 +23,7 @@ const WardrobeHeader = () => {
           My Closet
         </h1>
       </div>
-    </div>
+   
   );
 };
 

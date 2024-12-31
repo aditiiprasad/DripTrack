@@ -16,9 +16,9 @@ const AuthPage = () => {
   
       console.log("Success:", response.data);
   
-      // Store JWT token and email in localStorage
+      
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("email", formData.email);  // Store the email
+      localStorage.setItem("email", formData.email);  
   
       navigate("/home");
     } catch (error) {
@@ -26,37 +26,54 @@ const AuthPage = () => {
       alert(error.response?.data?.message || "An error occurred");
     }
   };
-  
+   
 
   return (
-    <div className="min-w-max  flex flex-col items-center justify-center bg-yellow-300">
-      <div>
-      {/* Source Code Link */}
-      <a
+   
+
+    <div className="w-full min-h-screen  bg-yellow-300">
+      <div className="flex justify-end p-2">
+        <a
         href="https://github.com/aditiiprasad/DripTrack"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-4 right-4 text-zinc-800 hover:text-custom-purple font-bold text-lg"
-      >
+        className="font-extrabold text-zinc-800 hover:text-custom-purple"
+        >
         Source Code
-      </a>
+        </a>
       </div>
-      <div className="mt-10">
-      <LoginHeader />
+
+      <div >
+           <LoginHeader />
       </div>
+
+      <div className="p-2 lg:px-56">
+
+      
       <AuthForm mode={isLogin ? "login" : "signup"} onSubmit={handleAuth} />
+
+      </div>
+
+
+      <div className="flex justify-center ">
       <button
-        onClick={() => setIsLogin(!isLogin)}
-        className="mt-4 text-gray-800 font-shrikhand underline"
+       onClick={() => setIsLogin(!isLogin)}
+       className="mt-4 text-gray-800 font-shrikhand underline hover:text-custom-red"
       >
-        {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
+      {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
       </button>
+      </div> 
+
       <div className="flex justify-center p-2 pt-8">
       <Intro/>
       </div>
-     
-      
-    </div>
+
+
+
+       </div>
+    
+   
+  
   );
 };
 

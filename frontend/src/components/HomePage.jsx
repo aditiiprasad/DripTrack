@@ -7,27 +7,27 @@ import Footer from "./basics/Footer";
 import Topbar from "./Topbar";
 
 const HomePage = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(null); 
   const navigate = useNavigate();
 
-  // Check if the user is logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setIsAuthenticated(true); // User is logged in
+      setIsAuthenticated(true); 
     } else {
-      navigate("/auth"); // Redirect to login if no token found
+      setIsAuthenticated(false);
+      navigate("/auth");
     }
   }, [navigate]);
 
-  if (!isAuthenticated) {
-    return <div>Loading...</div>; // Show loading or redirecting state while checking
+  if (isAuthenticated === null) {
+    return <div>Loading...</div>; 
   }
 
   const email = localStorage.getItem("email");
 
   return (
-    <div className="bg-custom-blue min-w-max border-black border-2">
+    <div className="bg-custom-blue w-full min-h-screen border-black border-2">
       <Taskbar />
 
       <div className="mt-24">
