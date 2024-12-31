@@ -24,7 +24,7 @@ const AuthForm = ({ mode, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="  mt-10 p-6 bg-custom-purple rounded-3xl border border-b-4 border-r-4 border-black">
+    <form onSubmit={handleSubmit} className="  mt-6 p-6  bg-custom-purple rounded-3xl border border-b-4 border-r-4 border-black">
       <h2 className="text-3xl font-shrikhand text-white mb-4 text-center">
         {mode === "login" ? "Login" : "Sign Up"}
       </h2>

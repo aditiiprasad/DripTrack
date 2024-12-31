@@ -3,17 +3,17 @@ import logo from "./assets/logo.png";
 
 const LoginHeader = () => {
   return (
-    <div className="flex justify-center items-center ">
-      <div className="flex items-center space-x-4"> 
-       
-        <img
-          src={logo} 
-          alt="DripTrack Logo"
-          className="h-28 transform rotate-6" 
-        />
-        
-        <h1 className="text-7xl font-shrikhand text-gray-800">DripTrack</h1>
-      </div>
+    <div className="flex flex-col md:flex-row justify-center items-center gap-4 p-4">
+      {/* Logo */}
+      <img
+        src={logo}
+        alt="DripTrack Logo"
+        className="h-20 md:h-28 transform rotate-6"
+      />
+      {/* Title */}
+      <span className="text-4xl md:text-4xl font-shrikhand text-gray-800 text-center md:text-left">
+        DripTrack
+      </span>
     </div>
   );
 };
