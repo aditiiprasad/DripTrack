@@ -73,6 +73,56 @@ router.delete("/delete/:id", async (req, res) => {
   }
 });
 
+// Stats
+router.get("/stats/:email", async (req, res) => {
+  const { email } = req.params;
+
+  try {
+    // 1. Total Items
+    const totalItems = await ClosetItem.countDocuments({ email });
+
+    // 2. Least Worn Items
+    const leastWornItems = await ClosetItem.find({ email, wearCount: { $lte: 1 } });
+
+    // 3. Most Popular Items (Most Worn)
+    const mostPopularItems = await ClosetItem.find({ email })
+      .sort({ wearCount: -1 })
+      .limit(3); // You can adjust the limit
+
+    // 4. Category Usage Percentage
+    const categoryUsagePercentage = await ClosetItem.aggregate([
+      { $match: { email } },
+      { $group: { _id: "$category", totalWearCount: { $sum: "$wearCount" } } },
+      { $group: { _id: null, total: { $sum: "$totalWearCount" }, categories: { $push: "$$ROOT" } } },
+      { $unwind: "$categories" },
+      {
+        $project: {
+          category: "$categories._id",
+          percentage: {
+            $multiply: [{ $divide: ["$categories.totalWearCount", "$total"] }, 100]
+          }
+        }
+      }
+    ]);
+
+    // 5. Unused Items 
+    const unusedItems = await ClosetItem.find({ email, wearCount: 0 });
+
+    // Send the aggregated stats
+    res.status(200).json({
+      totalItems,
+      leastWornItems: leastWornItems.map(item => ({ name: item.clothName, imageUrl: item.imageUrl })),
+      mostPopularItems: mostPopularItems.map(item => ({ name: item.clothName, imageUrl: item.imageUrl })),
+      categoryUsagePercentage,
+      unusedItems: unusedItems.length,
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching stats", error });
+  }
+});
+
 
 module.exports = router;
 

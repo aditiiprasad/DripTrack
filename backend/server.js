@@ -8,6 +8,8 @@ const closetRoutes = require("./routes/closet");
 
 
 
+
+
 require("dotenv").config();
 
 
@@ -33,6 +35,9 @@ mongoose
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use(cors());
+app.use(express.json());
+app.use("/api/closet", closetRoutes);
 
 app.listen(5000, () => console.log("Server running on http://localhost:5000"));
 

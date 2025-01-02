@@ -5,15 +5,17 @@ import WardrobeList from "./WardrobeList";
 import Taskbar from "./basics/Taskbar";
 import Footer from "./basics/Footer";
 import Topbar from "./Topbar";
+import Stats from "./Stats"; 
+
 
 const HomePage = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(null); 
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setIsAuthenticated(true); 
+      setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);
       navigate("/auth");
@@ -21,10 +23,8 @@ const HomePage = () => {
   }, [navigate]);
 
   if (isAuthenticated === null) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
-
-  const email = localStorage.getItem("email");
 
   return (
     <div className="bg-custom-blue w-full min-h-screen border-black border-2">
@@ -32,6 +32,12 @@ const HomePage = () => {
 
       <div className="mt-24">
         <Topbar />
+      
+       
+        <div id="stats">
+          <Stats />
+        </div>
+
         <div id="wardrobeUpload">
           <WardrobeUpload />
         </div>
