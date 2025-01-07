@@ -30,7 +30,7 @@ const Stats = () => {
   }, [email]);
 
   if (!stats) {
-    return <div className="text-center text-gray-500">Loading stats...</div>;
+    return <div className="text-center font-extrabold text-zinc-800"><div className="circular-loader"></div> Loading stats...</div>;
   }
 
   const categoryData = allCategories.map(category => {

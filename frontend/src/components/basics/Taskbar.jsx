@@ -4,19 +4,21 @@ import logo from "./assets/logo.png";
 
 const Taskbar = () => {
   const navigate = useNavigate();
-  const [activeButton, setActiveButton] = useState("upload");
+  const [activeButton, setActiveButton] = useState("stats");
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/auth");
   };
 
-  const handleScrollToSection = (sectionId, buttonName) => {
+  const handleScrollToSection = (sectionId, buttonName = null) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    setActiveButton(buttonName);
+    if (buttonName) {
+      setActiveButton(buttonName);
+    }
   };
 
   return (
@@ -26,13 +28,14 @@ const Taskbar = () => {
         <img
           src={logo}
           alt="Logo"
-          className="h-10 md:h-10 md:w-10 object-contain"
+          className="h-10 md:h-10 md:w-10 object-contain cursor-pointer"
+          onClick={() => handleScrollToSection("topbar" , "topbar")}
         />
       </div>
 
       {/* Buttons */}
       <div className="flex items-center gap-2 md:gap-4">
-      <button
+        <button
           onClick={() => handleScrollToSection("stats", "stats")}
           className={`px-3 py-1 md:px-4 md:py-2 rounded-full font-extrabold text-sm md:text-base ${
             activeButton === "stats"
@@ -62,7 +65,7 @@ const Taskbar = () => {
         >
           Add in my Closet
         </button>
-       
+
         <button
           onClick={handleLogout}
           className="px-3 border py-1 md:px-4 md:py-2 bg-custom-pink rounded-full font-extrabold text-black text-sm md:text-base 

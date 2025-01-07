@@ -49,6 +49,16 @@ Ever feel like you have nothing to wear, even though your wardrobe is packed? Dr
    - **Problem**: Users want to keep track of clothes they wish to buy in the future.
    - **Solution**: Implement a Wishlist feature that allows users to save desired items in a separate section for future reference or purchases.
    - **Next steps**: Build a form for users to add items to their wishlist, connect it to a backend database, and provide options to remove or mark items as purchased.
+
+#### 7. **Fashion AI Chatbot** `Status: Completed`
+   - **Problem**: Users want personalized fashion advice and help with outfit choices.
+   - **Solution**: Add an AI-powered chatbot to answer fashion-related questions. The chatbot will respond with helpful tips, such as suggesting outfits, answering questions about items in the wardrobe, and providing general fashion advice based on trends and user preferences.
+   - **Next steps**: 
+     1. Integrate a conversational UI to allow users to interact with the bot.
+     2. Use AI APIs (like Gemini or similar) to provide the chatbot responses in a friendly, concise format.
+     3. Display answers in Markdown format for easy reading and better presentation.   
+
+![Upload Screenshot](./Demo/chat.png)     
    
   
 ## Tech Stack
@@ -62,6 +72,7 @@ Ever feel like you have nothing to wear, even though your wardrobe is packed? Dr
   - **Node.js** 
   - **Express.js** 
   - **MongoDB** 
+  - **Google cloud platform**
 
 
 ## Challenges I Faced
