@@ -1,3 +1,4 @@
+// src/components/Intro.jsx
 import React from "react";
 import wardrobeImage from "./basics/assets/bulb.gif"; 
 

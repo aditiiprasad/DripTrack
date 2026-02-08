@@ -1,3 +1,4 @@
+// src/components/Auth/AuthPage.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import AuthForm from "./AuthForm";
@@ -6,13 +7,15 @@ import LoginHeader from "../basics/LoginHeader";
 import Intro from "../Intro";
 import Footer from "../basics/Footer";
 
+const API_URL = import.meta.env.VITE_BACKEND_URL;
+
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate(); 
 
   const handleAuth = async (formData) => {
     try {
-      const url = isLogin ? "https://driptrack.onrender.com/api/auth/login" : "https://driptrack.onrender.com/api/auth/signup";
+      const url = isLogin ? `${API_URL}/api/auth/login` : `${API_URL}/api/auth/signup`;
       const response = await axios.post(url, formData);
   
       console.log("Success:", response.data);

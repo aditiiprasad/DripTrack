@@ -1,5 +1,8 @@
+// src/components/ClosetForm.jsx
 import React, { useState } from "react";
 import axios from "axios";
+
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const ClosetForm = () => {
   const [clothName, setClothName] = useState("");
@@ -9,19 +12,10 @@ const ClosetForm = () => {
   const [showMoreCategories, setShowMoreCategories] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const email = localStorage.getItem("email");
-
+  // Categories list...
   const categories = [
-    "Pants",
-    "Shirts",
-    "T-Shirts",
-    "Skirts",
-    "Dresses",
-    "Shoes",
-    "Accessories",
-    "Indian Wear",
-    "Winter Wear",
-    "Shorts",
+    "Pants", "Shirts", "T-Shirts", "Skirts", "Dresses",
+    "Shoes", "Accessories", "Indian Wear", "Winter Wear", "Shorts",
   ];
 
   const handleFileChange = (e) => {
@@ -35,6 +29,16 @@ const ClosetForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setMessage("");
+
+    const email = localStorage.getItem("email");
+    const token = localStorage.getItem("token"); // <--- GET TOKEN
+
+    if (!token) {
+        setMessage("You must be logged in!");
+        setLoading(false);
+        return;
+    }
 
     const formData = new FormData();
     formData.append("email", email);
@@ -46,11 +50,12 @@ const ClosetForm = () => {
 
     try {
       await axios.post(
-        "https://driptrack.onrender.com/api/closet/add",
+        `${API_URL}/api/closet/add`,
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`, // <--- ATTACH TOKEN HERE
           },
         }
       );
@@ -70,8 +75,9 @@ const ClosetForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto px-4 sm:px-6">
-      {/* Cloth Name Input */}
-      <div className="mb-4">
+       {/* ... (Rest of your JSX remains exactly the same) ... */}
+       {/* Just copy your existing JSX return here, no changes needed to the UI */}
+       <div className="mb-4">
         <label className="block text-white font-semibold mb-2">Item Name</label>
         <input
           type="text"
@@ -82,7 +88,6 @@ const ClosetForm = () => {
         />
       </div>
 
-      {/* Category Buttons */}
       <div className="mb-4">
         <label className="block text-white font-semibold mb-2">Category</label>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
@@ -112,7 +117,6 @@ const ClosetForm = () => {
         )}
       </div>
 
-      {/* Image Upload */}
       <div className="mb-4">
         <label className="block text-white font-semibold">Upload Image</label>
         <input
@@ -123,7 +127,6 @@ const ClosetForm = () => {
         />
       </div>
 
-      {/* Submit Button or Loader */}
       {loading ? (
         <div className="w-10 h-10 border-t-4 border-white rounded-full animate-spin mx-auto"></div>
       ) : (
@@ -135,7 +138,6 @@ const ClosetForm = () => {
         </button>
       )}
 
-      {/* Message */}
       {message && <p className="mt-4 text-white font-semibold text-center">{message}</p>}
     </form>
   );

@@ -1,3 +1,4 @@
+// src/components/basics/WardrobeHeader.jsx
 
 import React from 'react';
 import logo from "./assets/logo.png";

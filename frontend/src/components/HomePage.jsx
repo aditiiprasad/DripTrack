@@ -1,3 +1,4 @@
+// src/components/HomePage.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import WardrobeUpload from "./WardrobeUpload";
@@ -7,6 +8,8 @@ import Footer from "./basics/Footer";
 import Topbar from "./Topbar";
 import Stats from "./Stats";
 import Modal from "./Modal"; 
+import Wishlist from "./Wishlist";
+import OutfitCreator from "./OutfitCreator";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
@@ -42,12 +45,19 @@ const HomePage = () => {
         <div id="stats">
           <Stats />
         </div>
+         <div id="wishlist">
+          <Wishlist />
+        </div>
+        <div id="outfits">
+          <OutfitCreator />
+        </div>
         <div id="wardrobeUpload">
           <WardrobeUpload />
         </div>
         <div id="wardrobeList">
           <WardrobeList />
         </div>
+
       </div>
 
       <Footer />

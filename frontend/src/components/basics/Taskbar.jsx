@@ -1,3 +1,4 @@
+// src/components/basics/Taskbar.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "./assets/logo.png";
@@ -29,7 +30,7 @@ const Taskbar = () => {
           src={logo}
           alt="Logo"
           className="h-10 md:h-10 md:w-10 object-contain cursor-pointer"
-          onClick={() => handleScrollToSection("topbar" , "topbar")}
+          onClick={() => handleScrollToSection("topbar", "topbar")}
         />
       </div>
 
@@ -55,15 +56,17 @@ const Taskbar = () => {
         >
           My Closet
         </button>
+        
+        {/* REPLACED BUTTON: Back to Top */}
         <button
-          onClick={() => handleScrollToSection("wardrobeUpload", "upload")}
+          onClick={() => handleScrollToSection("topbar", "topbar")}
           className={`px-3 py-1 md:px-4 md:py-2 rounded-full font-extrabold text-sm md:text-base ${
-            activeButton === "upload"
+            activeButton === "topbar"
               ? "bg-white border text-black border-black border-b-4 border-r-4 hover:bg-gray-200"
               : "bg-transparent border border-black hover:bg-gray-200 hover:text-black hover:border-b-2 hover:border-r-2"
           }`}
         >
-          Add in my Closet
+          Back to Top
         </button>
 
         <button

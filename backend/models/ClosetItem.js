@@ -1,3 +1,4 @@
+// backend/models/ClosetItem.js
 const mongoose = require('mongoose');
 
 const closetItemSchema = new mongoose.Schema({

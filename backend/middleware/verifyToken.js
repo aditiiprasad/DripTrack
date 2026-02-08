@@ -1,10 +1,8 @@
 // backend/middleware/verifyToken.js
-
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = process.env.JWT_SECRET || "your_secret_key"; 
+require("dotenv").config(); // Ensure we can read the .env file
 
 const verifyToken = (req, res, next) => {
-
   const token = req.header("Authorization")?.replace("Bearer ", "");
 
   if (!token) {
@@ -12,9 +10,7 @@ const verifyToken = (req, res, next) => {
   }
 
   try {
-    
-    const decoded = jwt.verify(token, JWT_SECRET);
-    
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded; 
     next();
   } catch (err) {

@@ -1,29 +1,22 @@
+// backend/server.js
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
 const closetRoutes = require("./routes/closet");
-
-
-
-
-
-
+const wishlistRoutes = require("./routes/wishlist");
+const outfitRoutes = require("./routes/outfit");
 
 require("dotenv").config();
 
-
-
-
 const app = express();
+
+// 1. Middleware (Apply once at the top)
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/closet", closetRoutes);
-
-
-// MongoDB connection
-const MONGO_URI = process.env.MONGO_URI || "your_fallback_local_mongo_url"; 
+// 2. Database Connection
+const MONGO_URI = process.env.MONGO_URI; 
 
 mongoose
   .connect(MONGO_URI, {
@@ -33,14 +26,17 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB", err));
 
-// Routes
+// 3. Routes
 app.use("/api/auth", authRoutes);
-app.use(cors());
-app.use(express.json());
 app.use("/api/closet", closetRoutes);
+app.use("/api/wishlist", wishlistRoutes);
+app.use("/api/outfits", outfitRoutes);
 
-app.listen(5000, () => console.log("Server running on http://localhost:5000"));
+// 4. Base Route for Testing
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Backend is running 🚀" });
+});
 
-
-
-
+// 5. Start Server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

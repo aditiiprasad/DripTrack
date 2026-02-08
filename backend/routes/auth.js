@@ -1,15 +1,11 @@
 // backend/routes/auth.js
-
 const express = require("express");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+require("dotenv").config(); // Import dotenv
 
 const router = express.Router();
-
-
-const JWT_SECRET = "your_secret_key";
-
 
 router.post("/signup", async (req, res) => {
   const { email, password } = req.body;
@@ -23,13 +19,17 @@ router.post("/signup", async (req, res) => {
     const user = new User({ email, password });
     await user.save();
 
-    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
+    // USE process.env.JWT_SECRET
+    const token = jwt.sign(
+      { id: user._id, email: user.email }, // Added email to payload for safety
+      process.env.JWT_SECRET, 
+      { expiresIn: "1h" }
+    );
     res.status(201).json({ token });
   } catch (error) {
     res.status(500).json({ message: "Error signing up", error });
   }
 });
-
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
@@ -45,7 +45,12 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
+    // USE process.env.JWT_SECRET
+    const token = jwt.sign(
+      { id: user._id, email: user.email }, 
+      process.env.JWT_SECRET, 
+      { expiresIn: "1h" }
+    );
     res.status(200).json({ token });
   } catch (error) {
     res.status(500).json({ message: "Error logging in", error });

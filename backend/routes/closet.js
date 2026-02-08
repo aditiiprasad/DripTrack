@@ -1,3 +1,4 @@
+// backend/routes/closet.js
 const express = require("express");
 const ClosetItem = require("../models/ClosetItem");
 const upload = require("../config/cloudinary");
